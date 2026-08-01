@@ -2,16 +2,16 @@
 
 ## Tipos de rede por tamanho:
 
-°SOHO (Pequeno Escritório Doméstico)
+**SOHO (Pequeno Escritório Doméstico)**
 Redes pequenas que conectam poucos dispositivos
 como impressoras, computadores e arquivos compartilhados.
 Permite que home offices acessem redes corporativas remotamente.
 
-°Redes médias e grandes°
+**Redes médias e grandes**
 Contém centenas de hosts interconectados.
 Mais presentes em empresas, escolas e instituições.
 
-°Internet°
+**Internet**
 È considerada a rede das redes dado que ela conecta centenas de milhões de dispositivos
 no mundo inteiro.
 
@@ -29,7 +29,7 @@ Toda informação é convertida em - códigos binários - sequências de 0 e 1.
 - Entrada (teclado, mouse, receptores ativos de voz) > convertida em binário e então processada na CPU
 - Saída (Monitor, impressora, alto falante) > convertida de volta para formato legível
   
-°ASCII Um modelo de código muito usado para converter caracteres como letras, números e símbolos em bits. 
+**ASCII** - Um modelo de código muito usado para converter caracteres como letras, números e símbolos em bits. 
 Nome formal: American Standard Code For information Interchange.
 
 # O que achei interessante 
