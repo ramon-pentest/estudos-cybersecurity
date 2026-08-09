@@ -45,3 +45,34 @@ Usei `cat readme` para ler o conteúdo e a senha estava lá.
 - `[comando] --help` → explicação resumida
 - `apropos [palavra]` → acha comandos relacionados ao tema
 - `compgen -c` → lista todos os comandos do sistema
+## Encontrando arquivos ocultos
+
+O `find` consegue encontrar arquivos ocultos — o `ls`
+sozinho não mostra. No Linux, qualquer arquivo que
+começa com `.` é considerado oculto.
+
+## Navegação rápida
+
+`/tmp` funciona como um atalho — parecido com um botão
+de "voltar" para uma pasta específica do sistema.
+
+## O curinga `*`
+
+O `*` representa "todos os arquivos da pasta atual".
+file -- * → mostra o tipo de todos os arquivos da pasta
+du -- * → mostra o tamanho de todos os arquivos da pasta
+
+
+## Find com filtros específicos
+
+O `find` pode buscar por características exatas do
+arquivo, combinando várias condições:
+
+find -type f -size 1033c ! -executable
+
+- `-type f` → procura por arquivos (não pastas)
+- `-size 1033c` → tamanho exato de 1033 bytes (o `c`
+  indica que a unidade é bytes)
+- `-executable` → o arquivo é executável
+- `! -executable` → o `!` nega a condição, ou seja,
+  procura por arquivo que NÃO é executável
