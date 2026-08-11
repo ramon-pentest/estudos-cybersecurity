@@ -1,4 +1,4 @@
-# Redes — Módulo 4: Conectividade Móvel
+# Redes — Módulo 3: Conectividade Móvel
 
 ## O celular como múltiplos dispositivos
 
