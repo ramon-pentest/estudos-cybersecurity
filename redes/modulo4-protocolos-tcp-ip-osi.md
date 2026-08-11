@@ -1,4 +1,4 @@
-# Redes — Módulo 5: Protocolos, TCP/IP e Modelo OSI
+# Redes — Módulo 4: Protocolos, TCP/IP e Modelo OSI
 
 ## O que é um protocolo
 
