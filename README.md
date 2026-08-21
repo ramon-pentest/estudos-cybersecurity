@@ -16,5 +16,6 @@ Me tornar pentester com especialização em AppSec.
 
 ## Organização
 
-- **/redes** → anotações sobre redes e protocolos
-- **/linux** → comandos e prática no Bandit
+- **/redes**  → anotações sobre redes e protocolos
+- **/linux**  → comandos e prática no Bandit + Máquina integrada
+- **/python** → fundamentos e scripts voltados para pentest
