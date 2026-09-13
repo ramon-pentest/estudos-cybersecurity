@@ -21,5 +21,5 @@ Me tornar pentester com especialização em AppSec.
 - **/redes**  → Anotações sobre redes e protocolos
 - **/linux**  → Comandos e prática no Bandit + Máquina integrada
 - **/python** → Fundamentos e scripts voltados para pentest
-- **TryHackMe** → Pre-Security 
-- **Cisco** → Fundamentos Cybersecurity
+- **/TryHackMe** → Pre-Security 
+- **/Cisco** → Fundamentos Cybersecurity
