@@ -60,7 +60,7 @@ from datetime import date
 ano = int(input('Em que ano você nasceu?'))
 atual = date.today().year
 idade = atual - ano
-if idade >= 18:  # corrigido: era "== 18", cobria só o ano exato
+if idade >= 18: 
     print('Voce precisa se alistar')
 else:
     print('Você ainda tá novo para isso.')
@@ -72,10 +72,10 @@ else:
 nota = float(input('Qual sua nota? '))
 nota2 = float(input('Qual sua segunda nota?'))
 resultado = (nota + nota2) / 2
-if resultado >= 7:  # corrigido: era "> 6", causava sobreposição com o elif
+if resultado >= 7:  
     print('você foi aprovado!')
     print(f'Essa foi sua nota: {resultado}')
-elif resultado >= 5:  # corrigido: não precisa do "and <= 6.9", o elif já herda o limite de cima
+elif resultado >= 5:  
     print('Você está de recuperação.')
     print(f'Essa foi sua nota: {resultado}')
 else:
@@ -93,11 +93,11 @@ atual = date.today().year
 idade = atual - ano
 if idade <= 9:
     print('sua categoria na natação nacional é Mirim!')
-elif idade <= 14:  # simplificado: não precisa do "idade >= 9", o elif já garante isso
+elif idade <= 14:  
     print('Sua categoria na natação nacional é Infantil!')
-elif idade <= 19:  # simplificado: mesma lógica
+elif idade <= 19: 
     print('Sua categoria na natação nacional é Junior!')
-elif idade >= 20:  # corrigido: era "== 20", deixava todo mundo acima de 20 cair em Master por engano
+elif idade >= 20: 
     print('Sua categoria na natação nacional é Sênior!')
 else:
     print('Sua categoria na natação nacional é Master!')
@@ -130,11 +130,11 @@ elevado = altura ** 2
 resultado = peso / elevado
 if resultado <= 18.5:
     print('Você está abaixo do peso! ')
-elif resultado <= 25:  # o "and >= 18.5" era redundante, o elif já garante isso
+elif resultado <= 25:
     print('Você está no Peso ideal! ')
-elif resultado <= 30:  # mesma simplificação
+elif resultado <= 30: 
     print('Você está com sobrepeso ')
-elif resultado <= 40:  # mesma simplificação
+elif resultado <= 40:
     print('Você está obeso')
 else:
     print('Você está com obesidade mórbiida! ')
@@ -192,7 +192,7 @@ if r1 < r2 + r3 and r2 < r1 + r3 and r3 < r1 + r2:
     print('Os segmentos acima PODEM formar um triângulo! ')
     if r1 == r2 == r3:
         print('Equilátero!')
-    elif r1 != r2 and r2 != r3 and r3 != r1:  # corrigido: comparação encadeada != não faz o que parece
+    elif r1 != r2 and r2 != r3 and r3 != r1: 
         print('Escaleno!')
     else:
         print('Isósceles!')
