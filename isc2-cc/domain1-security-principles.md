@@ -153,3 +153,95 @@ Um controle pode contribuir pra mais de uma função. O
 objetivo final de tudo é reduzir os riscos a um nível
 aceitável pra organização e proteger confidencialidade,
 integridade e disponibilidade.
+
+---
+
+## Leis que regulam dados pessoais — exemplos por região
+
+**HIPAA (Estados Unidos)**
+*Health Insurance Portability and Accountability Act*
+Lei dos EUA que protege informações médicas de
+pacientes. O descumprimento pode gerar penalidades
+financeiras e criminais.
+
+**GDPR (Europa)**
+*General Data Protection Regulation*
+Dá a qualquer pessoa dentro das fronteiras da UE
+controle sobre quais informações pessoais as empresas
+podem coletar e manter a seu respeito.
+
+**ISO**
+Organização internacional que publica padrões,
+incluindo normas relacionadas à destruição segura de
+dados.
+
+---
+
+## Lei vs Norma/Framework vs Política vs Procedimento
+
+Lei → exigência externa, com força jurídica,
+criada pelo governo
+Norma/Framework → orientação externa, geralmente do
+setor, sem força de lei direta (mas
+pode virar exigência contratual ou de
+certificação)
+Política → regra interna da organização,
+definindo “o quê”
+Procedimento → instrução interna da organização,
+definindo “como”, na prática, dia a dia
+
+
+### A cadeia completa
+
+Leis estabelecem obrigações → padrões orientam as
+práticas → políticas definem diretrizes → procedimentos
+orientam a execução diária.
+
+Lei → me diz que preciso fazer algo, mas não
+diz exatamente como
+(ex: “proteja dados pessoais de clientes”)
+
+Norma/Framework → dá um caminho testado de como
+organizações costumam atender essa
+exigência
+(ex: ISO 27001, NIST — “aqui está uma
+estrutura de controles que, se seguida,
+tende a satisfazer esse tipo de lei”)
+
+Política → a organização traduz essa orientação
+genérica numa regra própria dela
+(ex: “nossa política é: todo dado de
+cliente deve ser criptografado em
+repouso e em trânsito”)
+
+Procedimento → o funcionário recebe a instrução exata
+de execução daquela política
+(ex: “pra criptografar um banco de
+dados novo, siga esses 5 passos no
+sistema X”)
+
+---
+
+## Apetite, tolerância e limiar de risco
+
+Apetite de risco (Risk appetite) → a política geral:
+“quanto de risco a
+organização topa
+correr como regra”
+
+Tolerância a risco (Risk tolerance) → a decisão específica:
+“nessa situação
+pontual, até onde eu
+aceito esse risco”
+
+Limiar de risco (Risk threshold) → o ponto de corte
+exato onde a
+tolerância se esgota
+
+
+A tolerância a risco é a aplicação prática e situacional
+do apetite de risco geral da organização, e ela escala
+inversamente com a gravidade e a irreversibilidade do
+pior cenário possível: quanto mais recuperável a perda,
+mais risco se aceita; quanto mais irreversível (vida
+humana), menor a tolerância, até chegar em zero.
