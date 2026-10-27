@@ -245,3 +245,243 @@ inversamente com a gravidade e a irreversibilidade do
 pior cenário possível: quanto mais recuperável a perda,
 mais risco se aceita; quanto mais irreversível (vida
 humana), menor a tolerância, até chegar em zero.
+---
+
+## Accountability vs Nonrepudiation
+
+Accountability → rastreia uma ação até uma identidade
+via log/trilha de auditoria. Serve
+pra investigação, mas é contestável —
+um log sozinho pode ser forjado, ou
+a autenticação por trás dele pode ter
+sido comprometida (credencial roubada,
+sessão sequestrada)
+
+Nonrepudiation → exige prova criptográfica e protegida
+contra violação — mais forte do que
+simplesmente “ficou registrado em
+algum lugar”
+
+
+A diferença central:
+
+Accountability diz: “Aparentemente foi essa pessoa”
+Nonrepudiation diz: “Está provado, de forma verificável
+e resistente a contestação, que foi
+essa pessoa”
+
+
+Geralmente logs de aplicação web só fornecem
+Accountability.
+
+---
+
+## ISO 27001/27002 vs CIS Controls
+
+ISO 27001/27002 → framework de gestão: estrutura,
+governança, processo de decisão.
+Responde “como a organização deve se
+organizar pra gerenciar segurança”
+Mais abstrato, mais sobre estrutura
+de responsabilidade.
+
+CIS Controls → lista priorizada de ações práticas.
+Responde “o que eu faço primeiro, na
+prática, pra reduzir risco”
+Mais concreto, mais sobre execução direta.
+
+
+Reduzido ao essencial: **ISO é "como gerenciar", CIS é
+"o que fazer"**. Uma organização frequentemente usa os
+dois juntos — ISO dá a estrutura de gestão, CIS dá a
+lista de ação prioritária dentro dessa estrutura.
+
+### A família ISO 27000
+
+27001 → terminologia
+27002 → controle de segurança
+27003 → orientação de implementação (o CIS Control foca
+na prática, na medição de alto impacto que
+organizações podem implementar pra reduzir riscos)
+27005 → gerenciamento de risco
+
+
+---
+
+## Standard vs Framework vs Guideline
+
+Standard → requisito específico, geralmente prescritivo,
+que a organização adota voluntariamente ou
+pra atender expectativa regulatória
+(prescritivo = dizer exatamente o que fazer,
+passo a passo)
+
+Framework → abordagem estruturada pra gerenciar risco:
+oferece organização, categorias, processos
+
+Guideline → recomendação flexível, focada em como aplicar
+na prática. Fica entre framework e standard —
+mais prático que framework, mas menos rígido
+que standard
+
+
+**A diferença fundamental:** standard é prescritivo e
+específico (regra exata); framework é estruturado mas
+não necessariamente prescritivo no detalhe (categoria/
+processo, não número exato). Standard desce ao detalhe
+operacional, framework organiza em categoria mais ampla.
+
+### A cadeia completa
+
+Lei (obrigatório, define “o quê” em termos gerais)
+↓
+Standard (especifica “a regra exata” dentro de uma
+categoria — ex: ISO 27002 com seu catálogo de controle
+específico)
+↓
+Guideline (sugere “como aplicar na prática aquela regra”
+— ex: OWASP Top 10 dizendo como priorizar ação contra
+risco de aplicação web)
+↓
+Política interna da organização → Procedimento
+
+
+**Por que framework vem logo depois da lei, e não
+standard:** framework organiza a conversa inteira em
+categorias primeiro — você precisa saber que existe uma
+função "Protect" antes de saber qual standard específico
+de senha aplicar dentro dela. Standard entra depois
+porque ele presume que você já sabe em qual categoria
+está mexendo.
+
+NIST CSF tem exatamente 6 funções: **Govern, Identify,
+Protect, Detect, Respond, Recover**.
+
+---
+
+## Risk Treatment
+
+Risk treatment → a decisão do que fazer com um risco
+já identificado
+Residual risk → o risco que sobra depois de aplicar
+controles (o risco nunca zera,
+só diminui o máximo que der)
+Blast radius → o alcance do dano se algo der errado
+
+
+### As 4 opções de tratamento
+
+**1. Accept** — a empresa decide não fazer nada porque o
+risco em si causaria um dano insignificante, e o custo
+de eliminá-lo não compensa.
+
+**2. Avoid** — a empresa muda o processo de negócio pra
+nem ter o risco. Exemplo: em vez de guardar os dados do
+cartão do cliente, usa um processador de pagamento
+terceirizado, onde os dados do cartão nem chegam a tocar
+no sistema da empresa.
+
+**3. Reduce** — a empresa implementa controles pra
+diminuir a chance ou o impacto do risco, mas continua
+tendo que lidar com ele (MFA, controle de acesso,
+criptografia).
+
+**4. Share/Transfer** — a empresa passa parte do risco
+financeiro pra outra parte, geralmente via contrato. Se
+o vazamento acontecer, a seguradora cobre parte do
+prejuízo financeiro.
+
+---
+
+## Autenticação e Autorização
+
+*"Authentication establishes identity; authorization
+enforces permissions."*
+
+SFA (Single-Factor Authentication) → um fator único usado
+pra autenticar (senha,
+frase secreta, PIN)
+
+MFA (Multi-Factor Authentication) → usa 2 ou mais fatores
+ao mesmo tempo (token
+físico, smart card,
+chave de segurança
+combinados com senha,
+PIN, frase secreta)
+
+
+**MFA não é duas credenciais diferentes — é duas
+categorias independentes.** Usar PIN junto com senha é a
+mesma categoria, e um ataque de phishing, keylogger ou
+vazamento de dados provavelmente já teria as duas juntas,
+porque partem do mesmo princípio.
+
+### O limite do MFA tradicional
+
+Num caso de senha + SMS, nenhum dos dois fatores verifica
+criptograficamente que a requisição veio do site
+legítimo — ambos são só dados que a pessoa digita,
+interceptáveis.
+
+**FIDO2/passkey** resiste a isso porque usa
+**origin-binding**: a chave só autentica se o domínio
+bater exatamente com o real, então um clone visual do
+site não funciona mesmo que engane a pessoa.
+
+Existe uma exceção: um único fator resistente a phishing
+(tipo uma chave de segurança FIDO2) pode proteger mais do
+que MFA tradicional baseado em senha + segundo fator
+fraco.
+
+### Modelos de controle de acesso
+
+RBAC (Role-Based Access Control) → permissão atribuída
+com base no
+cargo/função. Ex:
+“todo analista
+financeiro” tem
+acesso ao sistema
+de contas a pagar,
+independente de
+quem ocupa o cargo
+
+ABAC (Attribute-Based Access Control) → permissão decidida
+considerando vários
+atributos ao mesmo
+tempo: cargo, tipo
+de dispositivo,
+localização, horário
+
+
+**Zero Trust** é, em boa parte, a resposta estrutural ao
+problema que o phishing moderno criou — se a autenticação
+pode ser comprometida mesmo com MFA (via sessão
+sequestrada), a defesa não pode depender só do momento do
+login, precisa ser contínua.
+
+---
+
+## Government vs Governance
+
+Government → quem cria a lei (uma entidade específica,
+externa à empresa)
+Governance → como uma organização organiza sua própria
+tomada de decisão internamente (um
+processo que pode existir dentro de
+qualquer empresa, não só no setor público)
+
+
+### Organizações de padrão — resumo
+
+ISO → internacional, pago
+NIST → agência do governo dos EUA, gratuito, mas virou
+padrão mundial
+IETF → protocolos de comunicação entre computadores
+IEEE → foca em telecomunicação, engenharia da computação
+e disciplinas similares
+
+
+CIS e NIST CSF são mais escolhidos por serem mais
+acessíveis — frameworks ou standards mais novos, sem
+tanto fundo de investimento no começo, procuram recursos
+mais acessíveis. Por isso são mais usados na prática.
